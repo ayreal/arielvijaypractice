@@ -44,9 +44,11 @@ function makeSeasons(data) {
 function renderEpisodes(num) {
   const episodes = makeEpisodes(data, num);
   console.log(episodes);
-  let episode = document.createElement("li");
-
-  // document.getElementById("episodes").innerHTML += episode
+  episodes.forEach(el => {
+    let episode = document.createElement("li");
+    episode.innerHTML = `${el.number}: ${el.name}`;
+    document.getElementById("episodes").appendChild(episode);
+  });
 }
 
 function makeEpisodes(data, num) {
